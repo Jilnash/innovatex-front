@@ -2,12 +2,12 @@
 <div class="container col">
   <input type="text" placeholder="Input keywords" v-model="keywords">
   <div>
-    <select name="price" id="price" v-model="price">
-      <option value="">Max price</option>
-      <option value="1000">1000tg</option>
-      <option value="2000">2000tg</option>
-      <option value="5000">5000tg</option>
+    <p>Sort type: </p>
+    <select name="radius" id="sort" v-model="sort">
+      <option value="importance">Importance</option>
+      <option value="distance">Distance</option>
     </select>
+    <p>Max range: </p>
     <select name="radius" id="radius" v-model="radius">
       <option value="">Max range</option>
       <option value="100">100m</option>
@@ -38,6 +38,7 @@ export default {
   name: "Suggestion",
   data() {
     return {
+      sort: null,
       radius: null,
       price: null,
       keywords: null,
@@ -52,7 +53,7 @@ export default {
         redirect: 'follow'
       };
 
-      fetch(`http://localhost:8080/xxx?keywords=${this.keywords}&radius=${this.radius}`, requestOptions)
+      fetch(`http://localhost:8080/xxx?keywords=${this.keywords}&radius=${this.radius}&sort=${this.sort}`, requestOptions)
           .then(response => response.text())
           .then(res => this.list = JSON.parse(res).results)
     }
