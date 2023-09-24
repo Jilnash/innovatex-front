@@ -1,0 +1,36 @@
+@import "./base.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    /*background-color: #000;*/
+    font-family: 'Poppins', sans-serif;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    padding: 20px;
+    border: 2px solid #306EF7;
+    border-radius: 45px;
+    height: 800px;
+    align-items: center;
+    width: 500px;
+    margin:  20px auto 0;
+}
+
+
+@media (min-width: 1024px) {
+
+}
